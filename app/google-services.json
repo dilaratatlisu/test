@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "721123890014",
+    "firebase_url": "https://tripbox-415209-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "tripbox-415209",
+    "storage_bucket": "tripbox-415209.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721123890014:android:8e67d23dcdf378bbcd75cf",
+        "android_client_info": {
+          "package_name": "com.dilaratatlisu.javamaps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp7dFO655OVjl7zEeUrJaPHU9iDWsFoAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
