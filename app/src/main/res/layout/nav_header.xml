@@ -9,6 +9,4 @@
     android:background="@drawable/nav_backgr"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-
-
 </LinearLayout>

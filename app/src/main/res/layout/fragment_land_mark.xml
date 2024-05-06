@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.LandMarkFragment"
     android:fitsSystemWindows="true"
-    android:id="@+id/drawer_layout">
+    tools:context=".Fragments.LandMarkFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +23,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -33,7 +32,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="200dp"
                     android:background="@drawable/landmark_bckg"
                     android:padding="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +44,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginBottom="50dp"
+                        android:layout_marginBottom="90dp"
                         android:text="Explore"
                         android:textColor="#605D5D"
                         android:textSize="55sp"
@@ -54,27 +53,35 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.appcompat.widget.SearchView
+
+                    <com.hendraanggrian.appcompat.socialview.widget.SocialAutoCompleteTextView
                         android:id="@+id/searchViewLandmark"
                         android:layout_width="331dp"
-                        android:layout_height="24dp"
+                        android:layout_height="50dp"
                         android:background="@drawable/searchviewbck"
-                        android:hint="Seach Location"
+                        android:drawableStart="@drawable/baseline_search_24"
+                        android:drawablePadding="5dp"
+                        android:hint="Search Location"
+                        android:paddingLeft="15dp"
+                        android:textColor="@color/grey"
+                        android:textColorHint="@color/grey"
+                        android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textViewExplore"
-                        app:layout_constraintVertical_bias="0.465"
-                        app:searchIcon="@drawable/baseline_search_24" />
+                        app:layout_constraintVertical_bias="0.465" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
                 <ListView
+                    android:id="@+id/listViewLandmark"
                     android:layout_width="332dp"
                     android:layout_height="406dp"
-                    android:id="@+id/listViewLandmark"
                     android:layout_marginTop="197dp"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.493"
@@ -82,9 +89,86 @@
                     app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
         </ScrollView>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/grey"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:text="See All"
+                    android:textSize="16sp"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/blue_light"/>
+            </LinearLayout>
+            
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Popular"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/grey"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:text="See All"
+                    android:textSize="16sp"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/blue_light"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popularRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp" />
+
+        </LinearLayout>
+
     </LinearLayout>
+
 
 
     <com.google.android.material.navigation.NavigationView

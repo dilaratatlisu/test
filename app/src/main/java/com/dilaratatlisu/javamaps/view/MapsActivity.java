@@ -14,7 +14,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -23,7 +22,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.dilaratatlisu.javamaps.R;
-import com.dilaratatlisu.javamaps.model.Place;
+import com.dilaratatlisu.javamaps.model.Locations;
 import com.dilaratatlisu.javamaps.roomdb.PlaceDao;
 import com.dilaratatlisu.javamaps.roomdb.PlaceDataBase;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -33,13 +32,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.dilaratatlisu.javamaps.databinding.ActivityMapsBinding;
-import com.google.android.material.datepicker.CompositeDateValidator;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -57,7 +54,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     boolean info;
     Double selectedLatitude;
     Double selectedlongitude;
-    Place selectedPlace;
+    Locations selectedLocations;
     LatLng latLng =null;
 
 
@@ -160,13 +157,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             mMap.clear();
 
-            selectedPlace = (Place) intent.getSerializableExtra("place");
+            selectedLocations = (Locations) intent.getSerializableExtra("place");
 
-            if (selectedPlace!=null){
-                latLng = new LatLng(selectedPlace.latitude, selectedPlace.longitude);
-                mMap.addMarker(new MarkerOptions().position(latLng).title(selectedPlace.name));
+            if (selectedLocations !=null){
+                latLng = new LatLng(selectedLocations.latitude, selectedLocations.longitude);
+                mMap.addMarker(new MarkerOptions().position(latLng).title(selectedLocations.name));
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
-                binding.placeName.setText(selectedPlace.name);
+                binding.placeName.setText(selectedLocations.name);
                 binding.saveButton.setVisibility(View.GONE);
                 binding.deleteButton.setVisibility(View.VISIBLE);
             }
@@ -213,9 +210,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void save(View view){
-        Place place = new Place(binding.placeName.getText().toString(), selectedLatitude, selectedlongitude);
+        Locations locations = new Locations(binding.placeName.getText().toString(), selectedLatitude, selectedlongitude);
 
-        compositeDisposable.add(placeDao.insert(place)
+        compositeDisposable.add(placeDao.insert(locations)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(MapsActivity.this :: handleResponse  ));
@@ -230,8 +227,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void delete(View view){
 
-        if (selectedPlace!= null){
-            compositeDisposable.add(placeDao.delete(selectedPlace)
+        if (selectedLocations != null){
+            compositeDisposable.add(placeDao.delete(selectedLocations)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(MapsActivity.this :: handleResponse));

@@ -15,7 +15,7 @@ import android.view.View;
 import com.dilaratatlisu.javamaps.R;
 import com.dilaratatlisu.javamaps.adapter.PlaceAdapter;
 import com.dilaratatlisu.javamaps.databinding.ActivitySavedLocationBinding;
-import com.dilaratatlisu.javamaps.model.Place;
+import com.dilaratatlisu.javamaps.model.Locations;
 import com.dilaratatlisu.javamaps.roomdb.PlaceDao;
 import com.dilaratatlisu.javamaps.roomdb.PlaceDataBase;
 
@@ -30,7 +30,7 @@ public class SavedLocationActivity extends AppCompatActivity {
 
     private ActivitySavedLocationBinding binding;
     private final CompositeDisposable mDisposable = new CompositeDisposable();
-    ArrayList<Place> places;
+    ArrayList<Locations> locations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class SavedLocationActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        places = new ArrayList<>();
+        locations = new ArrayList<>();
 
         PlaceDataBase db = Room.databaseBuilder(getApplicationContext(),
                 PlaceDataBase.class, "Places").allowMainThreadQueries().build();
@@ -52,10 +52,10 @@ public class SavedLocationActivity extends AppCompatActivity {
                 .subscribe(this::handleResponse));
     }
 
-    private void handleResponse(List<Place> placeList) {
+    private void handleResponse(List<Locations> locationsList) {
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        PlaceAdapter placeAdapter = new PlaceAdapter(placeList);
+        PlaceAdapter placeAdapter = new PlaceAdapter(locationsList);
         binding.recyclerView.setAdapter(placeAdapter);
 
     }

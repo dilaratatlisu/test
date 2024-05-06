@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dilaratatlisu.javamaps.databinding.RecyclerRowBinding;
-import com.dilaratatlisu.javamaps.model.Place;
+import com.dilaratatlisu.javamaps.model.Locations;
 import com.dilaratatlisu.javamaps.view.MapsActivity;
 
 import java.util.List;
@@ -18,10 +18,10 @@ import java.util.List;
 
 public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceHolder> {
 
-    List<Place> placeList;
+    List<Locations> locationsList;
 
-    public PlaceAdapter(List<Place> placeList) {
-        this.placeList = placeList;
+    public PlaceAdapter(List<Locations> locationsList) {
+        this.locationsList = locationsList;
     }
 
     @NonNull
@@ -36,14 +36,14 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceHolder>
     @Override
     public void onBindViewHolder(@NonNull PlaceAdapter.PlaceHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        holder.recyclerRowBinding.recyclerViewTextView.setText(placeList.get(position).name);
+        holder.recyclerRowBinding.recyclerViewTextView.setText(locationsList.get(position).name);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(), MapsActivity.class);
                 intent.putExtra("info", "old");
-                intent.putExtra("place", placeList.get(holder.getAdapterPosition()));
+                intent.putExtra("place", locationsList.get(holder.getAdapterPosition()));
                 holder.itemView.getContext().startActivity(intent);
             }
         });
@@ -54,7 +54,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceHolder>
     @Override
     public int getItemCount() {
 
-        return placeList.size();
+        return locationsList.size();
     }
 
     public class PlaceHolder extends RecyclerView.ViewHolder{

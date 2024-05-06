@@ -209,12 +209,13 @@
                 android:orientation="horizontal">
 
                 <ImageButton
+                    android:id="@+id/my_pictures"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/my_pictures"
                     android:src="@mipmap/my_photos"
-                    style="?android:attr/buttonBarButtonStyle"/>
+                    android:background="@drawable/buttoneffect"/>
 
                 <ImageButton
                     android:layout_width="0dp"
@@ -222,7 +223,8 @@
                     android:layout_weight="1"
                     android:id="@+id/saved_pictures"
                     android:src="@mipmap/turned_blank"
-                    style="?android:attr/buttonBarButtonStyle"/>
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:background="@drawable/buttoneffect"/>
 
             </LinearLayout>
 

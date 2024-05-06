@@ -17,6 +17,7 @@ public class OptionsActivity extends AppCompatActivity {
     private TextView settings;
     private TextView logOut;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,5 +45,6 @@ public class OptionsActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 }

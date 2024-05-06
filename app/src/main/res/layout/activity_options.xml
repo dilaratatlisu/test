@@ -25,15 +25,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/add_place"
-        android:text="Add Place"
-        android:layout_margin="10dp"
-        android:textColor="@color/blue_dark"
-        android:textSize="18sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/logout"
         android:text="@string/log_out"
         android:textColor="@color/blue_dark"

@@ -12,7 +12,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.dilaratatlisu.javamaps.Fragments.HomeFragment;
 import com.dilaratatlisu.javamaps.Fragments.LandMarkFragment;
@@ -20,7 +19,7 @@ import com.dilaratatlisu.javamaps.Fragments.ProfileFragment;
 import com.dilaratatlisu.javamaps.Fragments.SearchFragment;
 import com.dilaratatlisu.javamaps.R;
 import com.dilaratatlisu.javamaps.databinding.ActivityMainBinding;
-import com.dilaratatlisu.javamaps.model.Place;
+import com.dilaratatlisu.javamaps.model.Locations;
 import com.dilaratatlisu.javamaps.model.Post;
 import com.dilaratatlisu.javamaps.roomdb.PlaceDao;
 import com.dilaratatlisu.javamaps.roomdb.PlaceDataBase;
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity{
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     PlaceDataBase db;
     PlaceDao placeDao;
-    ArrayList<Place> places;
+    ArrayList<Locations> locations;
     ArrayList<Post> postArrayList;
     private FirebaseAuth auth;
     private FirebaseFirestore firebaseFirestore;
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity{
         View view = binding.getRoot();
         setContentView(view);
 
-        places = new ArrayList<>();
+        locations = new ArrayList<>();
 
 
         db = Room.databaseBuilder(getApplicationContext(), PlaceDataBase.class, "Places").build();
