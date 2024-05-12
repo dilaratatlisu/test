@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.dilaratatlisu.javamaps.R;
 import com.dilaratatlisu.javamaps.adapter.PhotoAdapter;
 import com.dilaratatlisu.javamaps.model.Post;
@@ -351,9 +352,14 @@ public class ProfileFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
 
-                Picasso.get().load(user.getImageUrl()).into(imageProfile);
+                //Picasso.get().load(user.getImageUrl()).into(imageProfile);
                 //user.setImageUrl(imageProfile.toString());
 
+                //Picasso.get().load(user.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.imageProfile);
+                //user.setImageUrl(holder.imageProfile.toString());
+                Glide.with(getContext())
+                        .load(user.getImageUrl())
+                        .into(imageProfile);
 
                 username.setText(user.getUsername());
                 fullname.setText(user.getName());

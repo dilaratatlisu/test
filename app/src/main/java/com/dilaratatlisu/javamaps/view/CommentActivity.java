@@ -1,5 +1,7 @@
 package com.dilaratatlisu.javamaps.view;
 
+import static java.security.AccessController.getContext;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,9 +14,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.dilaratatlisu.javamaps.R;
 import com.dilaratatlisu.javamaps.adapter.CommentAdapter;
 import com.dilaratatlisu.javamaps.model.Comment;
@@ -45,7 +49,7 @@ public class CommentActivity extends AppCompatActivity {
 
     private EditText addComment;
     private CircleImageView imageProfile;
-    private TextView post;
+    private ImageView post;
 
     private String postId;
     private String authorId;
@@ -162,9 +166,11 @@ public class CommentActivity extends AppCompatActivity {
                 if (user.getImageUrl()!=null&&user.getImageUrl().equals("default")) {
                     imageProfile.setImageResource(R.mipmap.ic_launcher);
                 } else {
-                    Picasso.get().load(user.getImageUrl()).into(imageProfile);
+                    //Picasso.get().load(user.getImageUrl()).into(imageProfile);
                     //user.setImageUrl(imageProfile.toString());
-
+                    Glide.with(getApplicationContext())
+                            .load(user.getImageUrl())
+                            .into(imageProfile);
                 }
             }
 

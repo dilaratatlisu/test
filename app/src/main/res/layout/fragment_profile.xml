@@ -102,7 +102,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="10sp"
+                                android:textSize="12sp"
                                 android:text="POSTS"
                                 android:textColor="@color/grey"/>
 
@@ -126,7 +126,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="10sp"
+                                android:textSize="12sp"
                                 android:text="FOLLOWERS"
                                 android:textColor="@color/grey"/>
 
@@ -150,7 +150,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="10sp"
+                                android:textSize="12sp"
                                 android:text="FOLLOWING"
                                 android:textColor="@color/grey"/>
 
@@ -160,13 +160,13 @@
 
                     <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:padding="2dp"
                         android:layout_marginTop="10dp"
                         android:text="EDIT PROFILE"
                         android:id="@+id/edit_profile"
-                        android:background="@drawable/followbutton"
-                        android:textColor="@color/blue_dark" />
+                        android:backgroundTint="@color/blue_light"
+                        android:textColor="@color/grey" />
 
                 </LinearLayout>
 

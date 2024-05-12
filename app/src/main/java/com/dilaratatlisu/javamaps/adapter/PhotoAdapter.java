@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.dilaratatlisu.javamaps.Fragments.PostDetailFragment;
 import com.dilaratatlisu.javamaps.R;
 import com.dilaratatlisu.javamaps.model.Post;
@@ -37,7 +38,11 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         final Post post = mPosts.get(position);
-        Picasso.get().load(post.getImageurl()).placeholder(R.mipmap.ic_launcher).into(holder.postImage);
+        //Picasso.get().load(post.getImageurl()).placeholder(R.mipmap.ic_launcher).into(holder.postImage);
+
+        Glide.with(holder.itemView.getContext())
+                .load(post.getImageurl())
+                .into(holder.postImage);
 
         holder.postImage.setOnClickListener(new View.OnClickListener() {
             @Override

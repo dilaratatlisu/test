@@ -27,6 +27,12 @@
         android:theme="@style/Theme.JavaMaps"
         tools:targetApi="31">
         <activity
+            android:name=".view.SeeAllActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.PlaceDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.SavedLocationActivity"
             android:exported="false" />
         <activity

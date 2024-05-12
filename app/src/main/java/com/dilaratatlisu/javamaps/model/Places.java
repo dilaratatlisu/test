@@ -1,6 +1,8 @@
 package com.dilaratatlisu.javamaps.model;
 
-public class Places {
+import java.io.Serializable;
+
+public class Places implements Serializable {
 
     private String title;
     private String location;

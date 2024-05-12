@@ -82,6 +82,8 @@ public class SearchFragment extends Fragment {
         readUsers();
         readTags();
 
+
+
         search_bar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -135,7 +137,8 @@ public class SearchFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (TextUtils.isEmpty(search_bar.getText().toString())){
-                    mUsers.clear();
+
+
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                         User user = snapshot.getValue(User.class);
                         mUsers.add(user);
@@ -146,17 +149,7 @@ public class SearchFragment extends Fragment {
 
 
 
-                if (search_bar.getText().toString().equals("")) {
-                    mUsers.clear();
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        User user = snapshot.getValue(User.class);
 
-                        mUsers.add(user);
-
-                    }
-
-                    userAdapter.notifyDataSetChanged();
-                }
             }
 
             @Override
@@ -166,6 +159,8 @@ public class SearchFragment extends Fragment {
         });
 
     }
+
+
 
     private void searchUser (String s) {
         Query query = FirebaseDatabase.getInstance().getReference().child("Users")

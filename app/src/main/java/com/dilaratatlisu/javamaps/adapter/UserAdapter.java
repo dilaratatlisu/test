@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.dilaratatlisu.javamaps.Fragments.ProfileFragment;
 import com.dilaratatlisu.javamaps.R;
 
@@ -68,8 +69,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         holder.username.setText(user.getUsername());
         holder.fullname.setText(user.getName());
 
-        Picasso.get().load(user.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.imageProfile);
+        //Picasso.get().load(user.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.imageProfile);
         //user.setImageUrl(holder.imageProfile.toString());
+        Glide.with(holder.itemView.getContext())
+                .load(user.getImageUrl())
+                .into(holder.imageProfile);
 
 
         isFollowed(user.getId() , holder.btnFollow);

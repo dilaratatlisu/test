@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.canhub.cropper.CropImageActivity;
 import com.canhub.cropper.CropImageView;
 
@@ -124,6 +125,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 username.setText(user.getUsername());
                 bio.setText(user.getBio());
                 Picasso.get().load(user.getImageUrl()).into(imageProfile);
+                Glide.with(getApplicationContext()).load(user.getImageUrl()).into(imageProfile);
                 //user.setImageUrl(imageProfile.toString());
 
             }

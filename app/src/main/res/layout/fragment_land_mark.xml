@@ -32,7 +32,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="170dp"
                     android:background="@drawable/landmark_bckg"
                     android:padding="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -70,27 +70,13 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textViewExplore"
-                        app:layout_constraintVertical_bias="0.465" />
+                        app:layout_constraintVertical_bias="0.465"
+                        android:completionThreshold="1" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-                <ListView
-                    android:id="@+id/listViewLandmark"
-                    android:layout_width="332dp"
-                    android:layout_height="406dp"
-                    android:layout_marginTop="197dp"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.493"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
         </ScrollView>
 
@@ -113,22 +99,12 @@
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:textColor="@color/grey"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:text="See All"
-                    android:textSize="16sp"
-                    android:layout_margin="8dp"
-                    android:textColor="@color/blue_light"/>
             </LinearLayout>
             
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/categoryRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"
                 android:paddingEnd="8dp"
                 android:paddingStart="8dp" />
 
@@ -148,13 +124,14 @@
                     android:textColor="@color/grey"/>
 
                 <TextView
+                    android:id="@+id/seeallbutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="textEnd"
-                    android:text="See All"
-                    android:textSize="16sp"
                     android:layout_margin="8dp"
-                    android:textColor="@color/blue_light"/>
+                    android:text="See All"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/blue_light"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -163,7 +140,7 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:paddingEnd="8dp"
-                android:paddingStart="8dp" />
+                android:paddingStart="8dp"/>
 
         </LinearLayout>
 

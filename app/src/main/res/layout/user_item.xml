@@ -41,13 +41,14 @@
     <Button
         android:id="@+id/btn_follow"
         android:layout_width="110dp"
-        android:layout_height="35dp"
+        android:layout_height="39dp"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="30dp"
-        android:background="@drawable/followbutton"
-        android:shadowColor="@color/grey"
-        android:textColor="@color/blue_dark"
+        android:textColor="@color/grey"
         android:textSize="11dp"
-        android:visibility="gone" />
+        android:backgroundTint="@color/blue_light"
+        android:clipToOutline="true"
+        android:layout_centerVertical="true"
+        />
 
 </RelativeLayout>

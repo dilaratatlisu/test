@@ -48,20 +48,10 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="68dp"
+                    android:layout_marginEnd="26dp"
                     android:layout_marginRight="65dp"
                     android:onClick="notifications"
                     android:src="@drawable/noti1" />
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="9dp"
-                    android:layout_marginRight="10dp"
-                    android:src="@drawable/message1"
-                    android:layout_centerInParent="true"/>
 
             </RelativeLayout>
 

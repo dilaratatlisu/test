@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.dilaratatlisu.javamaps.Fragments.PostDetailFragment;
 import com.dilaratatlisu.javamaps.Fragments.ProfileFragment;
 import com.dilaratatlisu.javamaps.R;
@@ -63,7 +64,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
     public void onBindViewHolder(@NonNull final Viewholder holder, int position) {
 
         final Post post = mPosts.get(position);
-        Picasso.get().load(post.getImageurl()).into(holder.postImage);
+        //Picasso.get().load(post.getImageurl()).into(holder.postImage);
+        Glide.with(holder.itemView.getContext())
+                .load(post.getImageurl())
+                .into(holder.postImage);
+
         holder.description.setText(post.getDescription());
 
         reference.child("Users").child(post.getPublisher()).addValueEventListener(new ValueEventListener() {
@@ -224,7 +229,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
             like = itemView.findViewById(R.id.like);
             comment = itemView.findViewById(R.id.comment);
             save = itemView.findViewById(R.id.save);
-            more = itemView.findViewById(R.id.more);
 
             username = itemView.findViewById(R.id.username);
             noOfLikes = itemView.findViewById(R.id.no_of_likes);

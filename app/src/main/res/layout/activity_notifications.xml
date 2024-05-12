@@ -26,7 +26,6 @@
                     android:layout_height="wrap_content"
                     android:text="Notifications"
                     android:textSize="18sp"
-                    android:textStyle="bold"
                     android:textColor="@color/blue_dark"/>
 
             </RelativeLayout>

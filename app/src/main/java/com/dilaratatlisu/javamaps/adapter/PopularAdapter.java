@@ -1,5 +1,6 @@
 package com.dilaratatlisu.javamaps.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +15,19 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.dilaratatlisu.javamaps.R;
 import com.dilaratatlisu.javamaps.model.Places;
+import com.dilaratatlisu.javamaps.view.PlaceDetailActivity;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 
 public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {
 
     ArrayList<Places> placesPopular;
-    DecimalFormat decimalFormat;
+
 
     public PopularAdapter(ArrayList<Places> placesPopular) {
         this.placesPopular = placesPopular;
-        decimalFormat = new DecimalFormat("###,###,###,###");
+
     }
 
     @NonNull
@@ -51,6 +52,15 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
                 .load(drawableResID)
                 .transform(new CenterCrop(), new GranularRoundedCorners(20,20,20,20))
                 .into(holder.image);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), PlaceDetailActivity.class);
+                intent.putExtra("object", placesPopular.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -68,8 +78,11 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             location = itemView.findViewById(R.id.location);
             image = itemView.findViewById(R.id.popularImageView);
+            image.setClipToOutline(true);
 
 
         }
+
+
     }
 }
