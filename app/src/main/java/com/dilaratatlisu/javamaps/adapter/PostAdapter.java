@@ -79,8 +79,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
                 if (user.getImageUrl()!=null && user.getImageUrl().equals("default")) {
                     holder.imageProfile.setImageResource(R.mipmap.ic_launcher);
                 } else {
-                    Picasso.get().load(user.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.imageProfile);
+                    //Picasso.get().load(user.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.imageProfile);
                     //user.setImageUrl(holder.imageProfile.toString());
+                    Glide.with(holder.itemView.getContext())
+                            .load(user.getImageUrl())
+                            .into(holder.imageProfile);
 
                 }
                 holder.username.setText(user.getUsername());

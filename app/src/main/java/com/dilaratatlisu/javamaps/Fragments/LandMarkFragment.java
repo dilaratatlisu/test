@@ -61,9 +61,9 @@ public class LandMarkFragment extends Fragment  implements NavigationView.OnNavi
     private RecyclerView.Adapter adapterPopular, adapterCategory;
     private RecyclerView recyclerViewPopular, recyclerViewCategory;
     View view;
-    ArrayList<Places> popularItems;
+    public static ArrayList<Places> popularItems ;
+    public static ArrayList<Category> categoryList;
     TextView seeAllButton;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -127,6 +127,13 @@ public class LandMarkFragment extends Fragment  implements NavigationView.OnNavi
 
     }
 
+    public static ArrayList<Places> getPopularItems() {
+        return popularItems;
+    }
+
+    public static ArrayList<Category> getCategoryList() {
+        return categoryList;
+    }
 
     public void connectRecyclerView() {
 
@@ -176,7 +183,7 @@ public class LandMarkFragment extends Fragment  implements NavigationView.OnNavi
         adapterPopular = new PopularAdapter(popularItems);
         recyclerViewPopular.setAdapter(adapterPopular);
 
-        ArrayList<Category> categoryList = new ArrayList<>();
+        categoryList = new ArrayList<>();
         categoryList.add(new Category("Beaches","beach_3719925"));
         categoryList.add(new Category("Historical Places","historic_site"));
         categoryList.add(new Category("Museums","museum_10607452"));
