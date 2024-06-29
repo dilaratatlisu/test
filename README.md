@@ -1,4 +1,5 @@
-# tripBox
+## tripBox
+# Proje Youtube linki: https://youtu.be/kJlM4i3odcU
 
 **Proje Tanımı:** Tripbox isimli seyahat uygulaması projem, zengin özellikleri sayesinde, gezi yaparken geçirdiğiniz keyifli anları daha da güzelleştirecek.  Geliştirilmiş harita özelliği sayesinde ziyaret etmek istediğiniz yerlerin geçmiş tarihine, görsellerine, hikayesine kolayca ulaşabileceksiniz. Size özel kitaplık sayesinde kaydettiğiniz yerlere daha sonra göz atabileceksiniz. Yeni yerler keşfederken geçirdiğiniz anları ölümsüzleştirmek istiyorsanız sadece gezi severlere özel paylaşımlar yapabileceğiniz bir sosyal medya hizmeti de sunuyorum. Daha birçok özellikle tanışmak istiyorsanız bizimle bir yolculuğa çıkmaya hazır mısınız?
 
